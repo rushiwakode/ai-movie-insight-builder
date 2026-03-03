@@ -1,36 +1,211 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎬 AI Movie Insight Builder
 
-## Getting Started
+An AI-powered web application that fetches movie details using an IMDb ID and generates intelligent audience insights using OpenAI.
 
-First, run the development server:
+Built as part of a Full-Stack Internship Assignment to demonstrate API integration, AI usage, and modern UI development with Next.js.
+
+---
+
+## 🚀 Features
+
+- 🔍 Fetch movie details using IMDb ID
+- 🎥 Display movie title, poster, cast, release year & rating
+- 📝 Show short plot summary
+- 🌍 Fetch real audience reviews (via TMDB API)
+- 🤖 AI-generated insight summary
+- 📊 Sentiment classification (Positive / Mixed / Negative)
+- ✅ Final recommendation (Good to Watch / Average / Not Recommended)
+- ✍️ Users can submit their own reviews
+- 🎨 Premium UI with animations
+
+---
+
+## 🛠 Tech Stack
+
+- **Frontend:** Next.js (App Router)
+- **Styling:** Tailwind CSS
+- **Animations:** Framer Motion
+- **Icons:** Lucide React
+- **Movie Data API:** OMDb API
+- **Reviews API:** TMDB API
+- **AI Analysis:** OpenAI API (gpt-4o-mini)
+
+---
+
+## 📂 Project Structure
+
+ai-movie-insight-builder/
+│
+├── app/
+│ ├── api/
+│ │ ├── movie/
+│ │ ├── reviews/
+│ │ ├── sentiment/
+│ │ └── summary/
+│ ├── layout.tsx
+│ ├── page.tsx
+│ └── globals.css
+│
+├── components/
+│ ├── MovieCard.tsx
+│ └── ReviewSummary.tsx
+│
+├── .env.local
+├── tailwind.config.ts
+├── postcss.config.js
+└── README.md
+
+---
+
+## ⚙️ Setup Instructions
+
+### 1️⃣ Clone the Repository
+
+````bash
+git clone <your-repository-url>
+cd ai-movie-insight-builder
+
+### 2️⃣ Install Dependencies
+
+```bash
+npm install
+
+### 3️⃣ Create Environment File
+
+Create a file named:
+
+```code
+.env.local
+
+Add the following keys:
+
+```code
+OMDB_API_KEY=your_omdb_key
+TMDB_API_KEY=your_tmdb_key
+OPENAI_API_KEY=your_openai_key
+
+
+### 🔑 How to Get API Keys
+
+## OMDb API
+
+    Visit: http://www.omdbapi.com/apikey.aspx
+
+    Generate and activate your key.
+
+## TMDB API
+
+    Visit: https://www.themoviedb.org/settings/api
+
+    Create a Developer API key (v3).
+
+## OpenAI API
+
+    Visit: https://platform.openai.com/api-keys
+
+    Generate a secret key.
+
+## 4️⃣ Run Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open in your browser:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```code
+http://localhost:3000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+##🎯 How It Works
 
-To learn more about Next.js, take a look at the following resources:
+1. User enters an IMDb ID (e.g., tt0133093).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. The app fetches movie details from OMDb.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+3. Reviews are fetched from TMDB.
 
-## Deploy on Vercel
+4. Reviews are sent to OpenAI for sentiment analysis.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+5. AI generates:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+    - Insight Summary
+
+    - Audience Sentiment Classification
+
+    - Highlights
+
+    - Final Recommendation
+
+## 📊 Sentiment Logic
+
+- Positive → Movie is good to watch.
+
+- Mixed → Movie is average; depends on viewer preference.
+
+- Negative → Movie is generally not recommended.
+
+## 🧠 AI Capabilities
+
+* The AI analyzes:
+
+    - Audience tone
+
+    - Common praise points
+
+    - Frequent complaints
+
+    - Overall emotional trend
+
+* And generates:
+
+    - AI summary paragraph
+
+    - Sentiment classification
+
+    - Highlight points
+
+    - Clear recommendation statement
+
+## 💡 Example IMDb IDs
+
+- tt0133093 — The Matrix
+
+- tt0468569 — The Dark Knight
+
+-- tt1375666 — Inception
+
+- tt0816692 — Interstellar
+
+## 🔮 Future Improvements
+
+- Store user reviews in a database (MongoDB / Supabase)
+
+- Add user authentication
+
+- Add star rating system
+
+- Add sentiment score visualization
+
+- Deploy to Vercel for production
+
+---
+
+## 👨‍💻 Author
+
+👤 **Rushikesh Parmeshwar Wakode**
+
+* Github: [@rushiwakode](https://github.com/rushiwakode)
+* LinkedIn: [@rushikesh-wakode](https://linkedin.com/in/rushikesh-wakode)
+
+
+## Show your support
+
+Give a ⭐️ if this project helped you!
+
+***
+
+## 📄 License
+
+This project is licensed under the MIT License – see the LICENSE file for details.
+````
